@@ -3,6 +3,11 @@ retail_query_engine
 
 The Retail Query Engine is an interactive natural language interface for querying retail databases. This tool harnesses the power of a large language model (LLM) to convert natural language inputs into SQL queries, making it easier for users without SQL knowledge to access data insights.
 
+**Project Demo**
+------------
+
+[Screen-Recording.webm](https://github.com/user-attachments/assets/d90f19f8-0703-4f19-8e3f-d1871b6233a4)
+
 Project Organization
 ------------
 

@@ -32,14 +32,19 @@ Project Organization
     │                         generated with `pip freeze > requirements.txt`
     │
     ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
+    ├── app.py             <- Streamlit app file used as the UI
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
     │   ├── data           <- Scripts to download or generate data
     │   │   └── make_dataset.py
     │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
+    │   ├── chain_creation.py       <- Scripts to run the langchin sql chain creation
+    │   ├── cleaning.py             <- Scripts to clean the output
+    │   ├── langchain_utils.py      <- Scripts to run the wrapper script for complete langchain with prompts
+    │   ├── chain_creation.py       <- Scripts to run the langchin sql chain creation
+    │   ├── table_choice.py         <- Scripts to run the chain for ctable table selection
+    │   │   
     │   │
     │   ├── models         <- Scripts to train models and then use trained models to make
     │   │   │                 predictions
@@ -53,5 +58,3 @@ Project Organization
 
 
 --------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>

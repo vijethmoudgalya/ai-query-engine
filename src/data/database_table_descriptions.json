@@ -1,0 +1,46 @@
+[
+    {
+        "table_name": "order_payments",
+        "description": "Stores payment details for each order, including payment method, installments, and the amount paid."
+    },
+    {
+        "table_name": "orders",
+        "description": "Contains order information, such as customer ID, order status, timestamps related to purchase, approval, and delivery."
+    },
+    {
+        "table_name": "products",
+        "description": "Holds information about products, including category, weight, dimensions, and the number of photos available."
+    },
+    {
+        "table_name": "order_items",
+        "description": "Records each item within an order, including product ID, seller ID, price, freight value, and shipping limit date."
+    },
+    {
+        "table_name": "customers",
+        "description": "Includes information about customers, such as their unique ID, location (zip code, city, state), and associated order data."
+    },
+    {
+        "table_name": "order_reviews",
+        "description": "Contains customer reviews for orders, including review score, comment, and timestamps for review creation and response."
+    },
+    {
+        "table_name": "sellers",
+        "description": "Stores details about sellers, including their ID, location (zip code prefix, city, state), and associated products sold."
+    },
+    {
+        "table_name": "geolocation",
+        "description": "Holds geographic data, including latitude and longitude, for different zip code prefixes and cities."
+    },
+    {
+        "table_name": "leads_qualified",
+        "description": "Contains data on qualified leads, with information on the first contact date, landing page ID, and origin of the lead."
+    },
+    {
+        "table_name": "leads_closed",
+        "description": "Tracks closed leads with details on business segment, lead type, company attributes, and revenue."
+    },
+    {
+        "table_name": "product_category_name_translation",
+        "description": "Provides translations for product category names, mapping each category to its English equivalent."
+    }
+]

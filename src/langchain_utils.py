@@ -56,7 +56,7 @@ def sql_engine(sql_query):
      
         return result
     except Exception as e:
-        st.warning("Please Wait")
+        st.warning(e)
     
     
 

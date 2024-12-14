@@ -61,7 +61,6 @@ target/
 
 # Database
 *.db
-*.sqlite
 *.rdb
 
 # Pycharm

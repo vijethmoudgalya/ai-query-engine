@@ -15,11 +15,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+# GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+GROQ_API_KEY = st.secrets(['GROQ_API_KEY'])
+
 @st.cache_resource
 def get_chain(_example_selector):
     print("Creating chain")
-    db = SQLDatabase.from_uri(f"sqlite:///src/data/olist.sqlite")
+    db = SQLDatabase.from_uri(f"sqlite:///data/olist.sqlite")
     llm = ChatGroq(model="llama3-8b-8192")
     
     chain = create_chain(llm,_example_selector,db)
@@ -46,7 +48,7 @@ def invoke_chain(question,example_selector,messages):
     return response
 def sql_engine(sql_query):
     try:
-        conn = sqlite3.connect('./src/data/olist.sqlite')
+        conn = sqlite3.connect('./data/olist.sqlite')
         cursor = conn.cursor()
         cursor.execute(sql_query)
         # Fetch the results
@@ -56,7 +58,7 @@ def sql_engine(sql_query):
      
         return result
     except Exception as e:
-        st.warning("Please Wait")
+        st.warning(e)
     
     
 

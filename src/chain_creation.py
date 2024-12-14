@@ -15,9 +15,6 @@ import os
 load_dotenv()
 import streamlit as st
 
-
-
-
 def create_chain(llm,example_selector,db):
     answer_prompt = PromptTemplate.from_template(
         """Given the following user question, corresponding SQL query, and SQL result, answer the user question and if it's in table format structure it properly.

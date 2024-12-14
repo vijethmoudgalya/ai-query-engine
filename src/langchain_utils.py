@@ -17,12 +17,12 @@ load_dotenv()
 
 GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 @st.cache_resource
-def get_chain():
+def get_chain(_example_selector):
     print("Creating chain")
     db = SQLDatabase.from_uri(f"sqlite:///src/data/olist.sqlite")
     llm = ChatGroq(model="llama3-8b-8192")
     
-    chain = create_chain(llm,db)
+    chain = create_chain(llm,_example_selector,db)
     print("Chain created successfully")
     return chain,db
 
@@ -35,8 +35,8 @@ def create_history(messages):
             history.add_ai_message(message["content"])
     return history
 
-def invoke_chain(question,messages):
-    chain,_ = get_chain()
+def invoke_chain(question,example_selector,messages):
+    chain,_ = get_chain(example_selector)
     history = create_history(messages)
     response = chain.invoke({"question": question,"top_k":3,"messages":history.messages})
     # response = chain.invoke({"question": question,"messages":history.messages})
@@ -56,7 +56,7 @@ def sql_engine(sql_query):
      
         return result
     except Exception as e:
-        st.error("Error executing sql engine")
+        st.warning(e)
     
     
 

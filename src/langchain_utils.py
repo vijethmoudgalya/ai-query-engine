@@ -1,6 +1,4 @@
 import os
-# GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-# LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
 
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_community.chat_message_histories import ChatMessageHistory
@@ -16,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # GROQ_API_KEY = os.getenv('GROQ_API_KEY')
-GROQ_API_KEY = st.secrets(['GROQ_API_KEY'])
+os.environ["GROQ_API_KEY"]= st.secrets['GROQ_API_KEY']
 
 @st.cache_resource
 def get_chain(_example_selector):

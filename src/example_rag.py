@@ -46,8 +46,8 @@ from langchain_community.vectorstores import FAISS
 import os
 import streamlit as st
 
-# HF_TOKEN = os.getenv("HF_TOKEN")
-HF_TOKEN = st.secrets(["HF_TOKEN"])
+HF_TOKEN = os.getenv("HF_TOKEN")
+# HF_TOKEN = st.secrets(["HF_TOKEN"])
 
 
 @st.cache_resource

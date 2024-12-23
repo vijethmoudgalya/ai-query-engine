@@ -20,7 +20,7 @@ GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 def get_chain(_example_selector):
     print("Creating chain")
     db = SQLDatabase.from_uri(f"sqlite:///src/data/olist.sqlite")
-    llm = ChatGroq(model="llama3-8b-8192")
+    llm = ChatGroq(model="llama3-70b-8192")
     
     chain = create_chain(llm,_example_selector,db)
     print("Chain created successfully")

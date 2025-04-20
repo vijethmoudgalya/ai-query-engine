@@ -64,4 +64,4 @@ def create_chain(llm,example_selector,db):
     )
     | rephrase_answer
     )
-    return final_chain
+    return final_chain,clean_sql_query(itemgetter("query"))

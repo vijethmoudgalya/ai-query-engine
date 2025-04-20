@@ -56,7 +56,8 @@ def main():
                 # Display assistant response in chat message container
                 with st.spinner("Generating response..."):
                     with st.chat_message("assistant"):
-                        response = invoke_chain(prompt,example_selector,st.session_state.messages)
+                        response,gen_query = invoke_chain(prompt,example_selector,st.session_state.messages)
+                        st.markdown("Generated SQL query is: "gen_query)
                         st.markdown(response)
                 st.session_state.messages.append({"role": "assistant", "content": response})
                 

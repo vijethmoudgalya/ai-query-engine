@@ -22,9 +22,9 @@ def get_chain(_example_selector):
     db = SQLDatabase.from_uri(f"sqlite:///src/data/olist.sqlite")
     llm = ChatGroq(model="llama3-70b-8192")
     
-    chain = create_chain(llm,_example_selector,db)
+    chain,gen_query = create_chain(llm,_example_selector,db)
     print("Chain created successfully")
-    return chain,db
+    return chain,db,gen_query
 
 def create_history(messages):
     history = ChatMessageHistory()
@@ -36,14 +36,14 @@ def create_history(messages):
     return history
 
 def invoke_chain(question,example_selector,messages):
-    chain,_ = get_chain(example_selector)
+    chain,_,gen_query = get_chain(example_selector)
     history = create_history(messages)
     response = chain.invoke({"question": question,"top_k":3,"messages":history.messages})
     # response = chain.invoke({"question": question,"messages":history.messages})
     
     history.add_user_message(question)
     history.add_ai_message(response)
-    return response
+    return response,gen_query
 def sql_engine(sql_query):
     try:
         conn = sqlite3.connect('./src/data/olist.sqlite')
